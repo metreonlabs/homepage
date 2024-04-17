@@ -85,9 +85,18 @@ input[type=number] {
   display: none;
 }
 
-a, button {
+a,
+button {
   cursor: pointer;
 }
+
+@media screen and (width: 1000px) {
+  .modal {
+    height: 100vh;
+    overflow-y: hidden;
+  }
+}
+
 
 @keyframes shake {
 

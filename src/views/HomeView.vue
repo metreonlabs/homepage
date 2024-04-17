@@ -55,7 +55,8 @@
         </div>
 
         <div class="ecosystem_apps">
-          <iframe width="500" height="350" src="https://www.youtube.com/embed/4zFlWSQobUU" title="Metreon" frameborder="0"
+          <iframe width="500" height="350" src="https://www.youtube.com/embed/4zFlWSQobUU" title="Metreon"
+            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen></iframe>
         </div>
@@ -101,6 +102,8 @@ import MouseIcon from '../components/icons/MouseIcon.vue';
   letter-spacing: 1px;
 }
 
+
+
 .hero_text_content .desc {
   margin-top: 40px;
   color: var(--tx-semi, #8B909E);
@@ -114,6 +117,8 @@ import MouseIcon from '../components/icons/MouseIcon.vue';
   letter-spacing: 0.32px;
 }
 
+
+
 .buttons {
   display: flex;
   align-items: center;
@@ -125,6 +130,7 @@ import MouseIcon from '../components/icons/MouseIcon.vue';
 .button {
   border-radius: 4px;
   width: 312px;
+  max-width: 100%;
   height: 54px;
   display: flex;
   align-items: center;
@@ -177,6 +183,7 @@ import MouseIcon from '../components/icons/MouseIcon.vue';
   padding: 200px 0;
 }
 
+
 .features {
   display: flex;
   flex-direction: column;
@@ -202,6 +209,7 @@ import MouseIcon from '../components/icons/MouseIcon.vue';
 
 .features p {
   width: 743px;
+  max-width: 100%;
   margin-top: 24px;
   color: #ABADAE;
   text-align: center;
@@ -222,6 +230,7 @@ import MouseIcon from '../components/icons/MouseIcon.vue';
   background: var(--Background-BG-400, #0A1D2E);
 
   width: 285px;
+  max-width: 100%;
   height: 50px;
   color: #fff;
   text-align: center;
@@ -238,7 +247,7 @@ import MouseIcon from '../components/icons/MouseIcon.vue';
   margin-top: 60px;
   margin-bottom: 100px;
   width: 1000px;
-  height: 684px;
+  max-width: 100%;
 }
 
 .ecosystem_container {
@@ -253,6 +262,7 @@ import MouseIcon from '../components/icons/MouseIcon.vue';
 
 .ecosystem {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   padding: 200px 0;
@@ -285,6 +295,7 @@ import MouseIcon from '../components/icons/MouseIcon.vue';
 
 .ecosystem_text button {
   width: 180px;
+  max-width: 100%;
   height: 40px;
   display: flex;
   align-items: center;
@@ -308,7 +319,96 @@ import MouseIcon from '../components/icons/MouseIcon.vue';
 
 .ecosystem_apps {
   width: 500px;
+  max-width: 100%;
   border-radius: 12px;
   overflow: hidden;
+}
+
+.ecosystem iframe {
+  max-width: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+  .hero {
+    padding-top: 180px;
+    padding-bottom: 60px;
+  }
+
+  .hero_text_content .title {
+    font-size: 42px;
+  }
+
+  .hero_text_content .desc {
+    margin-top: 30px;
+    padding: 0 10px;
+    font-size: 14px;
+  }
+
+  .buttons {
+    margin-top: 80px;
+  }
+
+
+  .button {
+    height: 50px;
+  }
+
+  .scroll {
+    margin-top: 120px;
+  }
+
+  .features_container {
+    padding: 120px 0;
+  }
+
+  .features h3 {
+    font-size: 26px;
+  }
+
+  .features p {
+    margin-top: 20px;
+    font-size: 14px;
+    padding: 0 10px;
+  }
+
+  .features button {
+    width: 245px;
+    height: 45px;
+  }
+
+  .features img {
+    margin-top: 40px;
+    margin-bottom: 60px;
+    height: auto;
+  }
+
+  .ecosystem {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 0;
+    gap: 60px;
+  }
+
+  .features img {
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+
+  .ecosystem_text h3 {
+    font-size: 26px;
+  }
+
+  .ecosystem_text p {
+    font-size: 14px;
+    margin-top: 20px;
+  }
+
+  .ecosystem_text button {
+    width: 160px;
+    height: 40px;
+    margin-top: 30px;
+  }
 }
 </style>

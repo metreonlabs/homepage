@@ -1,11 +1,11 @@
 <template>
     <section id="section">
         <div class="app_width">
-            <header>
+            <header id="main_header">
                 <div class="logo">
                     <MetreonLogo />
                 </div>
-                <div class="tabs">
+                <div class="tabs" ref="menu">
                     <a target="_blank" href="https://metreon.gitbook.io/metreon-docs/">
                         <div :class="'tab_item'">
                             <p>{{ $t("header.docs") }}</p>
@@ -36,6 +36,14 @@
                         </div>
                     </a>
                 </div>
+                <div class="handburger">
+                    <div ref="handburger" id="handburger" v-on:click="onDrawer()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
             </header>
         </div>
     </section>
@@ -45,7 +53,7 @@
 // import WalletDownIcon from './icons/WalletDownIcon.vue';
 import OutIcon from './icons/OutIcon.vue';
 import MetreonLogo from './icons/MetreonLogo.vue';
-</script >
+</script>
 
 <script>
 import i18n from "@/i18n";
@@ -80,6 +88,15 @@ export default {
         };
     },
     methods: {
+        onDrawer() {
+            this.$refs["handburger"].classList.toggle("open");
+            this.$refs["menu"].classList.toggle("open-menu");
+            document.body.classList.toggle("modal");
+        },
+        determineGlass() {
+            const header = document.getElementById('main_header');
+            header.classList.toggle('glass', window.scrollY > 850);
+        },
         switchLanguage(lang) {
             if (!lang.active) {
                 notify.push({
@@ -93,6 +110,13 @@ export default {
             i18n.global.locale.value = lang.code;
             this.aciveCode = lang.code;
         }
+    },
+    mounted() {
+        this.determineGlass();
+        const context = this;
+        window.addEventListener('scroll', function () {
+            context.determineGlass();
+        });
     }
 };
 </script>
@@ -116,7 +140,7 @@ header {
 }
 
 .logo {
-    width: 190px;
+    min-width: 190px;
 }
 
 .connection {
@@ -158,6 +182,7 @@ header {
     gap: 60px;
     display: flex;
     align-items: center;
+    transition: .2s;
 }
 
 .tab_item p {
@@ -240,5 +265,131 @@ a .tab_item svg {
     line-height: 100%;
     /* 16px */
     letter-spacing: 0.32px;
+}
+
+.handburger {
+    display: none;
+    cursor: pointer;
+}
+
+.glass #handburger span {
+    background: #0C1A33;
+}
+
+@media screen and (max-width: 1000px) {
+    .logo {
+        min-width: 0px;
+    }
+
+    .logo svg {
+        height: 26px;
+    }
+
+    .tabs {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+        top: 0;
+        right: -120%;
+        flex-direction: column;
+        background: var(--bg);
+        padding: 60px 20px;
+        gap: 0;
+    }
+
+    .open-menu {
+        right: 0 !important;
+    }
+
+    .connection_action {
+        width: 150px;
+    }
+
+    a {
+        display: block;
+        width: 100%;
+    }
+
+    a .tab_item {
+        width: 100%;
+        height: 65px;
+        border-bottom: 1px solid var(--bg-lightest);
+        padding: 0 20px;
+    }
+
+    .handburger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 2px;
+        width: 40px;
+        height: 40px;
+        z-index: 9999;
+    }
+
+    #handburger {
+        width: 24px;
+        height: 14px;
+        position: relative;
+        transform: rotate(0deg);
+        transition: 0.5s ease-in-out;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #handburger span {
+        display: block;
+        position: absolute;
+        height: 2px;
+        width: 24px;
+        background: #FFFFFF;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0deg);
+        transition: 0.25s ease-in-out;
+    }
+
+    #handburger span:nth-child(1) {
+        top: 0px;
+    }
+
+    #handburger span:nth-child(2),
+    #handburger span:nth-child(3) {
+        top: 6px;
+    }
+
+    #handburger span:nth-child(4) {
+        top: 12px;
+    }
+
+
+    #handburger.open span:nth-child(1) {
+        top: 10px;
+        width: 0%;
+        left: 50%;
+    }
+
+    #handburger.open span:nth-child(2) {
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
+    #handburger.open span:nth-child(3) {
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+
+    #handburger.open span:nth-child(4) {
+        top: 18px;
+        width: 0%;
+        left: 50%;
+    }
 }
 </style>
