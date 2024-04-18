@@ -112,6 +112,11 @@ export default {
         }
     },
     mounted() {
+        document.querySelectorAll('.tabs a').forEach(element => {
+            element.addEventListener('click', () => {
+                context.onDrawer();
+            });
+        });
         this.determineGlass();
         const context = this;
         window.addEventListener('scroll', function () {
