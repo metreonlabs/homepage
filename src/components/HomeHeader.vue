@@ -6,12 +6,12 @@
                     <MetreonLogo />
                 </div>
                 <div class="tabs" ref="menu">
-                    <a target="_blank" href="https://metreon.gitbook.io/metreon-docs/">
+                    <a target="_blank" href="https://docs.metreon.xyz/">
                         <div :class="'tab_item'">
                             <p>{{ $t("header.docs") }}</p>
                         </div>
                     </a>
-                    <a target="_blank" href="https://github.com/devarogundade/metreon.hack.areon">
+                    <a target="_blank" href="https://github.com/metreonlabs">
                         <div :class="'tab_item'">
                             <p>{{ $t("header.github") }}</p>
                         </div>
@@ -30,7 +30,7 @@
                     </a>
                 </div>
                 <div class="connection">
-                    <a href="https://metreon.gitbook.io/metreon-docs/" target="_blank">
+                    <a href="https://docs.metreon.xyz/" target="_blank">
                         <div class="connection_action">
                             <p>{{ $t("header.startBuilding") }}</p>
                         </div>

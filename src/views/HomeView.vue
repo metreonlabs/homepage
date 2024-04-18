@@ -7,7 +7,7 @@
           <p class="desc">{{ $t("hero.description") }}</p>
 
           <div class="buttons">
-            <a href="https://metreon.gitbook.io/metreon-docs/" target="_blank">
+            <a href="https://docs.metreon.xyz/" target="_blank">
               <div class="button">{{ $t("hero.button1") }}</div>
             </a>
             <!-- <a href="" target="_blank">
@@ -49,7 +49,7 @@
 
           <p>Overview of applications comprising Metreon's infrastructural ecosystem.</p>
 
-          <a href="https://metreon.gitbook.io/metreon-docs/" target="_blank">
+          <a href="https://docs.metreon.xyz/" target="_blank">
             <button> Explore DApps </button>
           </a>
         </div>
