@@ -16,13 +16,13 @@
                             <p>{{ $t("header.github") }}</p>
                         </div>
                     </a>
-                    <a target="_blank" href="https://metreon-scan.netlify.app">
+                    <a target="_blank" href="https://scan.metreon.xyz">
                         <div :class="'tab_item'">
                             <p>{{ $t("header.scan") }}</p>
                             <OutIcon />
                         </div>
                     </a>
-                    <a target="_blank" href="https://beamre.netlify.app">
+                    <a target="_blank" href="https://bridge.metreon.xyz">
                         <div :class="'tab_item'">
                             <p>{{ $t("header.nftBridge") }}</p>
                             <OutIcon />

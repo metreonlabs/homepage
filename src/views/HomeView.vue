@@ -34,7 +34,7 @@
         <h3>{{ $t("features.titleA") }} <span>{{ $t("features.titleB") }}</span></h3>
         <p>{{ $t("features.description") }}</p>
         <img src="/images/beamre.png" alt="">
-        <a href="https://beamre.netlify.app" target="_blank">
+        <a href="https://bridge.metreon.xyz" target="_blank">
           <button>{{ $t("features.tryItOut") }}</button>
         </a>
       </div>
