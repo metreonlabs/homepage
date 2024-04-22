@@ -24,49 +24,121 @@
     </div>
   </section>
 
-  <section id="section" style="height: 600px; background-color: #fff;">
+  <div class="group_container">
+    <section id="section" class="what_container">
+      <div class="app_width">
+        <div class="what">
+          <h3 class="what_title">What metreon offers</h3>
 
-  </section>
+          <div class="items">
+            <div class="item">
+              <TransferIcon />
+              <h6>Seamlessly Relay <br> data</h6>
+              <p>By making relaying of arbitrary data across multiple blockchains effortless, Dapps on Areon can easily
+                maximize their functionalities by going cross-chain.</p>
+            </div>
 
-  <section id="section" class="features_container" style="margin-top: -600px;">
-    <div class="app_width">
-      <div class="features">
-        <h3>{{ $t("features.titleA") }} <span>{{ $t("features.titleB") }}</span></h3>
-        <p>{{ $t("features.description") }}</p>
-        <img src="/images/beamre.png" alt="">
-        <a href="https://bridge.metreon.xyz" target="_blank">
-          <button>{{ $t("features.tryItOut") }}</button>
-        </a>
-      </div>
-    </div>
-  </section>
+            <div class="item">
+              <CoinIcon />
+              <h6>Built-in Tokens <br> transfer feature</h6>
+              <p>DApps powered by Metreon benefits from the ease of secure transferring of tokenized assets across
+                chains
+                with the help of the token composability. </p>
+            </div>
 
-  <section class="ecosystem_container">
-    <div class="app_width">
-      <div class="ecosystem">
-        <div class="ecosystem_text">
-          <h3>Ecosystem</h3>
+            <div class="item">
+              <NewBlockIcon />
+              <h6>One integration for <br> multiple chain support.</h6>
+              <p>Integrating your Dapp with Metreon readily unlock it's support for other blockchain i.e BNB chain,
+                Polygon and more.</p>
+            </div>
+          </div>
 
-          <p>Overview of applications comprising Metreon's infrastructural ecosystem.</p>
-
-          <a href="https://docs.metreon.xyz/" target="_blank">
-            <button> Explore DApps </button>
+          <a href="https://docs.metreon.xyz" target="_blank">
+            <button class="what_learn">Learn More</button>
           </a>
         </div>
+      </div>
+    </section>
 
-        <div class="ecosystem_apps">
-          <iframe width="500" height="350" src="https://www.youtube.com/embed/4zFlWSQobUU" title="Metreon"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
+
+    <section id="section" class="footer_container">
+      <div class="app_width">
+        <div class="footer_tabs">
+          <div class="footer_tab">
+            <h3>Get Started</h3>
+
+            <div class="footer_tab_links">
+              <a href="https://docs.metreon.xyz/developers" target="_blank">As a Developer</a>
+              <a href="https://docs.metreon.xyz/use-cases/for-users" target="_blank">As a User</a>
+            </div>
+          </div>
+
+          <div class="footer_tab">
+            <h3>Ecosystem</h3>
+
+            <div class="footer_tab_links">
+              <a href="https://scan.metreon.xyz" target="_blank">Metreon<span>Scan</span></a>
+              <a @click="comingSoon" class="disabled">Beamre</a>
+            </div>
+          </div>
+
+          <div class="footer_tab">
+            <h3>Resources</h3>
+
+            <div class="footer_tab_links">
+              <a href="https://docs.metreon.xyz/" target="_blank">Docs</a>
+              <a href="https://github.com/metreonlabs" target="_blank">GitHub</a>
+            </div>
+          </div>
+
+          <div class="footer_tab footer_tab">
+            <h3>Community</h3>
+
+            <div class="footer_tab_links footer_social_tab_links">
+              <a href="https://t.me/metreonlabs" target="_blank">
+                <TelegramIcon />
+              </a>
+              <a href="https://twitter.com/metreon_labs" target="_blank">
+                <XIcon />
+              </a>
+              <a @click="comingSoon" class="disabled">
+                <DiscordIcon />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+
+
+      <img src="/images/footer.png" alt="">
+    </section>
+  </div>
 </template>
 
 <script setup>
+import CoinIcon from '../components/icons/CoinIcon.vue';
+import TransferIcon from '../components/icons/TransferIcon.vue';
+import NewBlockIcon from '../components/icons/NewBlockIcon.vue';
 import MouseIcon from '../components/icons/MouseIcon.vue';
+import TelegramIcon from '../components/icons/TelegramIcon.vue';
+import XIcon from '../components/icons/XIcon.vue';
+import DiscordIcon from '../components/icons/DiscordIcon.vue';
+</script>
+
+<script>
+import { notify } from '../reactives/notify';
+export default {
+  methods: {
+    comingSoon: function () {
+      notify.push({
+        title: "Feature coming soon.",
+        description: "Stay updated with us on X to be the first to know!",
+        category: "error"
+      });
+    }
+  }
+};
 </script>
 
 <style scoped>
@@ -178,19 +250,27 @@ import MouseIcon from '../components/icons/MouseIcon.vue';
 
 /*  */
 
-.features_container {
-  background-repeat: repeat;
-  padding: 200px 0;
+.group_container {
+  background-image: url('/images/lines.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 1040px 2000px;
+  background-color: #EDF0F5;
+  padding-top: 200px;
+  max-width: 100%;
 }
 
+/*  */
 
-.features {
+.what_container {}
+
+.what {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.features h3 {
+.what_title {
   color: #293A59;
   text-align: center;
 
@@ -202,37 +282,74 @@ import MouseIcon from '../components/icons/MouseIcon.vue';
   letter-spacing: 0.76px;
 }
 
-.features h3 span {
-  color: var(--Primary-Primary-200, #2F9BD6);
-  text-decoration-line: underline;
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 120px;
+  margin-bottom: 100px;
+
+  justify-content: center;
 }
 
-.features p {
-  width: 743px;
+.item {
+  width: 380px;
   max-width: 100%;
-  margin-top: 24px;
+  border-radius: 6px;
+  background: #FCFDFF;
+  padding: 50px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item svg {
+  background: #F2F5FA;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+}
+
+
+.item h6 {
+  margin-top: 40px;
+  color: #182D40;
+  text-align: center;
+
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 160%;
+  /* 38.4px */
+  letter-spacing: -0.24px;
+  width: 260px;
+}
+
+.item p {
+  margin-top: 26px;
   color: #ABADAE;
   text-align: center;
 
-  font-size: 20px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: 150%;
-  /* 30px */
-  letter-spacing: 0.4px;
-  margin-bottom: 40px;
-
+  /* 24px */
+  letter-spacing: -0.16px;
 }
 
-.features button {
-  border-radius: 6px;
-  border: 1px solid var(--Stroke-BgLight, #182D40);
-  background: var(--Background-BG-400, #0A1D2E);
+.what_learn {
+  border-radius: 4px;
+  border: 1px solid #EDF0F5;
+  background: #FCFDFF;
+  height: 46px;
+  width: 195px;
 
-  width: 285px;
-  max-width: 100%;
-  height: 50px;
-  color: #fff;
+  color: #0C1A33;
   text-align: center;
 
   font-size: 16px;
@@ -241,174 +358,148 @@ import MouseIcon from '../components/icons/MouseIcon.vue';
   line-height: 100%;
   /* 16px */
   letter-spacing: 0.64px;
+
+  cursor: pointer;
+  user-select: none;
 }
 
-.features img {
-  margin-top: 60px;
-  margin-bottom: 100px;
-  width: 1000px;
-  max-width: 100%;
+/*  */
+
+.footer_container {
+  padding-top: 200px;
+  padding-bottom: 550px;
+  position: relative;
 }
 
-.ecosystem_container {
-  background-image: url('/images/lines.png');
-  background-repeat: repeat-y;
-  background-position: center center;
-  background-size: 900px;
-  background-color: rgba(10, 21, 31, 0.839);
-  display: flex;
-  justify-content: center;
-}
-
-.ecosystem {
+.footer_tabs {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  padding: 200px 0;
-  gap: 240px;
-}
-
-.ecosystem_text {
-  width: 454px;
-}
-
-.ecosystem_text h3 {
-  color: var(--Text-Text-Normal, #FFF);
-  font-size: 34px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 150%;
-  /* 51px */
-}
-
-.ecosystem_text p {
-  color: var(--Text-Text-Dimmed, #787883);
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-  /* 24px */
-  letter-spacing: 0.32px;
-  margin-top: 30px;
-}
-
-.ecosystem_text button {
-  width: 180px;
+  gap: 40px;
   max-width: 100%;
+  justify-content: space-between;
+}
+
+.footer_tab {
+  width: 250px;
+  max-width: 100%;
+}
+
+.footer_tab h3 {
+  margin-bottom: 28px;
+  font-weight: 600;
+  color: #39375C;
+  font-size: 20px;
+}
+
+.footer_tab_links {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer_tab_links a {
+  display: block;
+  padding: 10px 0;
+  color: #182D40;
+  font-size: 16px;
+}
+
+.footer_tab_links span {
+  font-weight: 600;
+}
+
+.footer_container img {
+  position: absolute;
+  transform: translate(-50%, 0);
+  left: 50%;
+  bottom: 0;
+  width: 1920px;
+  max-width: 100%;
+}
+
+.footer_social_tab_links {
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer_social_tab_links svg {
+  background: #FFFFFF;
+  width: 40px;
   height: 40px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 6px;
-  border: 1px solid var(--Stroke-BgLight, #182D40);
-  background: var(--Background-BG-400, #0A1D2E);
-
-  color: var(--Text-Text-Normal, #FFF);
-  text-align: center;
-
-  /* Text-14-Reg */
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
-  /* 16.8px */
-  letter-spacing: 0.28px;
-  margin-top: 60px;
+  padding: 8px;
 }
 
-.ecosystem_apps {
-  width: 500px;
-  max-width: 100%;
-  border-radius: 12px;
-  overflow: hidden;
+.footer_tab .disabled {
+  opacity: 0.5;
 }
 
-.ecosystem iframe {
-  max-width: 100%;
-}
 
 @media screen and (max-width: 1000px) {
   .hero {
-    padding-top: 180px;
+    padding-top: 200px;
     padding-bottom: 60px;
   }
 
-  .hero_text_content .title {
-    font-size: 42px;
-  }
-
-  .hero_text_content .desc {
-    margin-top: 30px;
-    padding: 0 10px;
-    font-size: 14px;
-  }
-
-  .buttons {
-    margin-top: 80px;
-  }
-
-
-  .button {
-    height: 50px;
-  }
 
   .scroll {
     margin-top: 120px;
   }
 
-  .features_container {
-    padding: 120px 0;
+  .hero_text_content .title {
+    font-size: 36px;
   }
 
-  .features h3 {
-    font-size: 26px;
+
+  .group_container {
+    padding-top: 100px;
   }
 
-  .features p {
-    margin-top: 20px;
-    font-size: 14px;
-    padding: 0 10px;
+
+  .what_title {
+    font-size: 24px;
   }
 
-  .features button {
-    width: 245px;
-    height: 45px;
-  }
-
-  .features img {
-    margin-top: 40px;
-    margin-bottom: 60px;
-    height: auto;
-  }
-
-  .ecosystem {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    padding: 120px 0;
-    gap: 60px;
-  }
-
-  .features img {
-    margin-top: 60px;
+  .items {
+    margin-top: 80px;
     margin-bottom: 60px;
   }
 
-  .ecosystem_text h3 {
-    font-size: 26px;
+  .item {
+    padding: 30px 30px;
   }
 
-  .ecosystem_text p {
+  .item h6 {
+    margin-top: 26px;
+    font-size: 20px;
+  }
+
+  .item p {
+    margin-top: 16px;
     font-size: 14px;
-    margin-top: 20px;
   }
 
-  .ecosystem_text button {
-    width: 160px;
-    height: 40px;
-    margin-top: 30px;
+  .footer_tab h3 {
+    margin-bottom: 16px;
+    font-size: 16px;
+  }
+
+  .footer_tab_links a {
+    padding: 4px 0;
+    font-size: 14px;
+  }
+
+  .footer_container {
+    padding-top: 100px;
+    padding-bottom: 150px;
+  }
+
+  .footer_social_tab_links svg {
+    width: 36px;
+    height: 36px;
   }
 }
 </style>
