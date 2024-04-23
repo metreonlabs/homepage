@@ -6,7 +6,7 @@ const messages = {
             docs: "Docs",
             github: "Github",
             scan: "Explorer",
-            nftBridge: "Token Bridge",
+            nftBridge: "Beamre Bridge",
             startBuilding: "Start Building"
         },
         hero: {

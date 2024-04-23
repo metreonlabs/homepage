@@ -22,7 +22,7 @@
                             <OutIcon />
                         </div>
                     </a>
-                    <a target="_blank" href="https://bridge.metreon.xyz">
+                    <a target="_blank" href="https://docs.metreon.xyz/product-guides/beamre-bridge-coming-soon">
                         <div :class="'tab_item'">
                             <p>{{ $t("header.nftBridge") }}</p>
                             <OutIcon />
